@@ -1,0 +1,1 @@
+osmfilter finalno.osm --keep="shop=supermarket"| osmconvert.exe - --all-to-nodes --csv="@id @lat @lon name" --csv-headline --csv-separator="," -o="finalno4.txt"
