@@ -1,0 +1,150 @@
+@font-face{
+    font-family: "Bukhari";
+    src: url("../Fonts/Bukhari/Bukhari.ttf");
+}
+@font-face {
+    font-family: "Gagalin";
+    src: url("../Fonts/Gagalin/Gagalin-Regular.otf");
+}
+html{
+    height: 100%;
+}
+body {
+    height: 100%;
+    background-image: url("../Images/Background.png");
+    min-height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+ul{
+    list-style: none;
+    display: inline;
+    margin-left: 50px;
+}
+li{
+    font-size: 28px;
+    color: white;
+    display: inline-block;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+#Page{
+    position: absolute;
+    background-color: #C4FFD8;
+    width: 50%;
+    margin-left: 25%;
+    height: max-content;
+}
+#MainPage{
+    margin-top: 150px;
+    width: 100%;
+    position: relative;
+    height: max-content;
+    display: inline-block;
+    float: left;
+}
+.Categories{
+    display: inline-block;
+    float: left;
+    height: 200px;
+    width: 300px;
+    padding-left: 30px;
+    margin: 20px 80px 20px 60px;
+}
+#PageName{
+    padding-top: 0;
+    position: fixed;
+    display: inline-block;
+    margin-left: 25%;
+    top: 13px;
+    float: left;
+    font-family: "Bukhari", serif;
+    font-size: 53px;
+    color: #FFDE59;
+}
+#Login{
+    color : black;
+    font-size: 20px;
+    background-color: #FFDE59; /* Green */
+    border: none;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    display: inline-block;
+}
+.Tools{
+    height: 30px;
+    width: 30px;
+}
+#Korpa{
+    margin-right: 20px;
+    width: 40px;
+}
+
+#Tools{
+    float: right;
+    margin-right: 26.5%;
+    margin-top: -10px;
+}
+#Search{
+    height: 30px;
+    width: 180px;
+}
+header{
+    top:0;
+    left:0;
+    width:100%;
+    height: 100px;
+    padding: 10px 10px 0 10px;
+    background-color: black;
+    position: fixed;
+    min-height: 0;
+    z-index: 9;
+}
+#logo{
+    width: 120px;
+    height: 70px;
+    margin-left: 25%;
+    display: inline;
+    top: 0;
+    float: left;
+}
+#Help{
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+    float: left;
+}
+#footer {
+    margin-left: -8px;
+    top: 100%;
+    width:100%;
+    height: 100px;
+    padding: 20px 10px 0 10px;
+    background-color: black;
+    position: relative;
+    min-height: 0;
+}
+#Widgets{
+    margin-left: 27%;
+    display: inline-block;
+}
+.Widgets{
+    height: 50px;
+    width: 50px;
+}
+#Contact{
+    color: white;
+    float: right;
+    margin-right: 28%;
+}
+#Dialog{
+    display: none;
+}
