@@ -52,6 +52,19 @@ a {
     font-size: 53px;
     color: #FFDE59;
 }
+#map {
+    border: 1px solid black;
+    position: relative;
+    top:0;
+    bottom: 0;
+    right: 0;
+    float: left;
+    height: 500px;
+    width: 100%;
+}
+#description{
+    display: none;
+}
 #Login{
     color : black;
     font-size: 20px;

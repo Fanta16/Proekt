@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <link rel="stylesheet" href="Page 3.css">
     <script src="../jquery/jquery.js"></script>
     <script src="../jquery/jquery-ui.js"></script>
@@ -28,7 +33,12 @@
 
 <div id="Page">
     <div id="MainPage">
-        <img id="Map" src="../Images/Centar%20Mapa.png" alt="Missing Image">
+    </div>
+    <div id="description">
+
+    </div>
+    <div id="map">
+
     </div>
     <div id="Help"></div>
 </div>
@@ -46,5 +56,79 @@
     Username:<br><input type="text" placeholder="Enter Username" name="username" id="InputUser"><br>
     Password:<br><input type="password" placeholder="Enter Password" name="password" id="InputPassword"><br>
 </div>
+<script>
+
+    $("document").ready(function () {
+        $.get("Centar-Supermarketi.txt", function(data) {
+            document.getElementById("description").innerText=data;
+            var koordinati=[];
+            var lat=[];
+            var lan=[];
+            var regex = /[+-]?\d+(\.\d+)?/g;
+
+
+            var floats = data.match(regex).map(function(v) { return parseFloat(v); });
+            console.log(floats);
+            for (var i=0;i<floats.length;i++){
+                if(floats[i]%1!=0){
+                    koordinati.push(floats[i]);
+                }
+            }
+            for (var i=0;i<koordinati.length;i++){
+                if(koordinati[i]>30){
+                    lat.push(koordinati[i]);
+                }
+            }
+            for (var i=0;i<koordinati.length;i++){
+                if(koordinati[i]<30){
+                    lan.push(koordinati[i]);
+                }
+            }
+            console.log(koordinati);
+            console.log(lat);
+            console.log(lan);
+            var razdeleni=data.split("\n");
+            console.log(razdeleni);
+            var prv=razdeleni[1].split(",");
+            console.log(prv);
+            var prv_lat=prv[1];
+            var prv_lon=prv[2];
+            console.log(prv_lat);
+            console.log(prv_lon);
+            var map=L.map('map').setView([41.995918301436745,21.431281780330234],14);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            for (var i = 0; i < lat.length; i++) {
+                marker = new L.marker([lat[i], lan[i]])
+                    .addTo(map);
+                console.log(lat[i],lan[i]);
+            }
+        });
+    });
+        $(".hover").hover(function(){
+            $(this).css("color", "#FFDE59");
+        }, function(){
+            $(this).css("color", "#FFFFFF");
+        })
+        $("#Login").click(function(){
+            $("#Dialog").dialog({
+                modal: true,
+                closeOnEscape: true,
+                buttons:{
+                    Најави: function (){
+                        $(this).dialog("close");
+                    },
+                    Откажи: function () {
+                        $(this).dialog("close");
+                    }
+                },
+                closeText: ""
+            });
+        })
+
+
+</script>
 </body>
 </html>
