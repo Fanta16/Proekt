@@ -1,10 +1,10 @@
-package mk.ukim.finki.dians.eshop;
+package mk.ukim.finki.dians.emarketshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EShopApplicationTests {
+class EMarketshopApplicationTests {
 
     @Test
     void contextLoads() {
