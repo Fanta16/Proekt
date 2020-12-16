@@ -1,5 +1,8 @@
+html{
+    height: 100%;
+}
 #logo{
-    height: 100px;
+    height:100px;
     width: 200px;
 }
 .navbar-nav{
@@ -61,6 +64,9 @@ a{
 }
 body{
     background-color: palegreen;
+    height: 100%;
+
+    padding-right: -5px;
 }
 .col-12 img{
     height: 100px;
@@ -72,4 +78,38 @@ body{
     padding: 2rem;
 
 }
+#celo{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+.col-xs-6{
+    display: block;
+    font-size: 4.5em;
+    padding-top: -5px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+
+}
+
+#contact{
+    display: inline-block;
+}
+footer{
+    height: max-content;
+    background-color: black;
+}
+ footer p{
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: -20px;
+    padding-left: 20px;
+
+}
+ #futer{
+     margin-left: 0px;
+
+ }
+
 
