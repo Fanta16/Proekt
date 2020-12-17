@@ -21,4 +21,19 @@ public class Category {
         this.imageUrl = imageUrl;
     }
 
+    public Category() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }
