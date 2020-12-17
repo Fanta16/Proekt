@@ -111,5 +111,19 @@ footer{
      margin-left: 0px;
 
  }
+.fa-shopping-cart{
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-left: 40px;
+
+}
+.fa-globe{
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-left: 45px;
+}
+
 
 
