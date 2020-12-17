@@ -147,7 +147,11 @@ footer p{
     height: 70%;
     width: 80%;
     border: 2px solid black;
-
-
+}
+.fa-sign-in{
+    color: white;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-left: 45px;
 }
 
