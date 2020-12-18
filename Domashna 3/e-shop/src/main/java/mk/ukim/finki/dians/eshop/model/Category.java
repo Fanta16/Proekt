@@ -2,10 +2,8 @@ package mk.ukim.finki.dians.eshop.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,6 +13,8 @@ public class Category {
     private Long id;
     private String name;
     private String imageUrl;
+    @OneToMany(mappedBy="category")
+    List<Product> products;
 
     public Category(String name, String imageUrl) {
         this.name = name;
