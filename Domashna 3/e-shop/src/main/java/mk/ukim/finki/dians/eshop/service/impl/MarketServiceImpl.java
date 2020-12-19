@@ -24,13 +24,7 @@ public class MarketServiceImpl implements MarketService {
         return marketRepository.findMarketsByName(name);
     }
 
-    @Override
-    public List<Market> findMarketsByAddress(String address) {
-        return marketRepository.findMarketsByAddress(address);
-    }
 
-    @Override
-    public List<Market> findMarketsByLatitudeAndLongitude(float latitude, float longitude) {
-        return marketRepository.findMarketsByLatitudeAndLongitude(latitude,longitude);
-    }
+
+
 }

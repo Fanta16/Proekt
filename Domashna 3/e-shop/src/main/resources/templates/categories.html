@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="../../../../../../../../../Downloads/Strana3.css">
+    <link rel="stylesheet" href="Strana2.css">
     <title>Категории</title>
 </head>
 <body>
@@ -20,40 +20,61 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class=href="#"><img id="logo" src="Images/image.jpg"></a>
+                <a class=href="#"><img id="logo" src="images/image.jpg"></a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link" href="../../../../../../../../../Downloads/Strana1.html">Насловна<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="categories.html">Категории</a>
+                        <a class="nav-link" href="/">Насловна<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="/категории">Категории</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="Strana3.html">Мапа</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-globe" aria-hidden="true"></i></a>
-                    </li>
+
                     <li>
                         <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
                     </li>
+
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/категории}">
+                        <select  name="language" class="form-control" style="margin-right: 5px">
+                            <option>
+                                МК
+                            </option>
+                            <option>
+                                EN
+                            </option>
+                        </select>
+                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Пребарај" aria-label="Search">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" >Пребарај</button>
                 </form>
             </div>
         </nav>
     </div>
-    <div id="mapata" >
+    <div class="container">
+            <div class="col-6  " th:each="category,index : ${categories}" th:if="${index.even}">
+                <a th:href="@{'/категории/{category}' (category=${category.getName()})}">
+                <img class="img-fluid" th:src="${category.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category.getName()}">Овошје и Зеленчук</h1>
+                </a>
+            </div>
+            <div class="col-6  other"  th:each="category1, index1 : ${categories}" th:if="${index1.odd}">
+                <a th:href="@{'/категории/{category}' (category=${category1.getName()})}">
 
-
+                <img  class="img-fluid" th:src="${category1.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category1.getName()}"></h1>
+                </a>
+            </div>
+        </div>
     </div>
-</div>
 
+
+
+</div>
 <footer>
     <p>Контакт:</p>
     <div id="futer" class="container">

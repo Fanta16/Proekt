@@ -7,8 +7,6 @@ import java.util.List;
 public interface MarketService {
     public List<Market> findAll();
     public List<Market> findMarketsByName(String name);
-    public List<Market> findMarketsByAddress(String address);
-    public List<Market> findMarketsByLatitudeAndLongitude(float latitude,float longitude);
 
 
 }

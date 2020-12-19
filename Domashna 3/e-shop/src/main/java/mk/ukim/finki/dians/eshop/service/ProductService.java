@@ -10,5 +10,7 @@ public interface ProductService {
 
     public List<Product> findProductsByCategory(Category category);
 
+    public List<Product> searchByProducts(String text);
+
 
 }

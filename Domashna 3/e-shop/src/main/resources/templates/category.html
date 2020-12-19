@@ -23,10 +23,10 @@
                 <a class=href="#"><img id="logo" src="images/image.jpg"></a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link" href="Strana1.html">Насловна<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Насловна<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="Strana2.html">Категории</a>
+                        <a class="nav-link" href="/категории">Категории</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Strana3.html">Мапа</a>
@@ -41,27 +41,30 @@
                         <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                <form class="form-inline my-2 my-lg-0" th:action="@{/категории}" th:method="POST">
+                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Пребарај" aria-label="Search">
+                    <input class="btn btn-outline-warning my-2 my-sm-0 " type="submit" value="Пребарај"></input>
                 </form>
             </div>
         </nav>
     </div>
-    <div class="container">
-        <div class="row" >
-            <div class="col-lg-6" th:each="category,index : ${categories}" th:if="${index.even}">
-                <img class="img-fluid" th:src="${category.getImageUrl()}">
-                <h1 class="sliki_text" th:text="${category.getName()}">Овошје и Зеленчук</h1>
+
+    <div  th:if="${products.size()>0}">
+    <div th:each="product : ${products}"  class="card" style="width: 18rem;" >
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${product.getName()}">Card title</h5>
+            <div class="card-body">
+            <p  th:text="${product.getPrice()}+' ден.'"></p>
+                <p th:text="${product.getMarket().getName()}"></p>
             </div>
-            <div class="col-lg-6 other"  th:each="category1, index1 : ${categories}" th:if="${index1.odd}">
-                <img  class="img-fluid" th:src="${category1.getImageUrl()}">
-                <h1 class="sliki_text" th:text="${category1.getName()}"></h1>
-            </div>
+            <a href="#" class="btn btn-primary">Додади во кошничка</a>
         </div>
-
-
+    </div>
+    </div>
 </div>
+
+    </div>
 </div>
 <footer>
     <p>Контакт:</p>

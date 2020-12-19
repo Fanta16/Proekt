@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -26,10 +26,10 @@
             <a class=href="#"><img id="logo" src="images/image.jpg"></a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Strana1.html">Насловна<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Насловна<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Strana2.html">Категории</a>
+                    <a class="nav-link" href="/категории">Категории</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Strana3.html">Мапа</a>
@@ -44,9 +44,11 @@
                     <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/}">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Пребарај" aria-label="Search" >
+                <input class="btn btn-outline-warning my-2 my-sm-0 dropdown-toggle" type="submit" value="Пребарај"></input>
+
+
             </form>
         </div>
     </nav>
@@ -84,13 +86,8 @@
 <div class="container-fluid padding">
     <div class="row padding">
         <div class="col-lg-6 col-sm-6" >
-            <img class="marketi"src="images/Granap.png">
-            <img class="marketi"src="images/Vero.png">
-            <img class="marketi"src="images/Tinex.png">
-            <img class="marketi"src="images/Zito.png">
-            <img class="marketi"src="images/Stokomak.png">
-            <img class="marketi"src="images/Kam.jpg">
-            <img class="marketi"src="images/Ramstor.jpg">
+            <img class="marketi" th:each="market : ${markets}" th:src="${market.getImageUrl()}">
+
         </div>
         <div class="col-lg-6">
             <h1 id="best-title">Најпродавани Продукти</h1>
