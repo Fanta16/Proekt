@@ -16,7 +16,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Strana2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
+            <state relative-caret-position="841">
               <caret line="89" column="51" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="53" />
             </state>
           </provider>
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Strana3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="99" column="35" lean-forward="true" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+            <state relative-caret-position="750">
+              <caret line="160" column="19" lean-forward="true" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
               </folding>
@@ -35,10 +35,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Strana1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-23">
+              <caret line="84" column="54" lean-forward="true" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Strana3.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="773">
-              <caret line="157" column="18" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
+            <state relative-caret-position="756">
+              <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -46,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Strana2.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="739">
-              <caret line="148" selection-start-line="148" selection-end-line="148" />
+            <state relative-caret-position="-9">
+              <caret line="104" column="28" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -75,8 +84,8 @@
         <option value="$PROJECT_DIR$/Strana2.html" />
         <option value="$PROJECT_DIR$/Strana2.css" />
         <option value="$USER_HOME$/Desktop/Faks ace/Napreden Veb Dizajn/Lab 3/AWD_Lab_SCSS/zad3/gradients.scss" />
-        <option value="$PROJECT_DIR$/Strana3.html" />
         <option value="$PROJECT_DIR$/Strana3.css" />
+        <option value="$PROJECT_DIR$/Strana3.html" />
       </list>
     </option>
   </component>
@@ -90,7 +99,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -102,6 +110,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -142,14 +151,19 @@
       <workItem from="1608211160565" duration="2765000" />
       <workItem from="1608290096401" duration="989000" />
       <workItem from="1608316483278" duration="1884000" />
+      <workItem from="1608319004532" duration="368000" />
+      <workItem from="1608398973386" duration="8401000" />
+      <workItem from="1608426555620" duration="3323000" />
+      <workItem from="1608429909401" duration="1555000" />
+      <workItem from="1608478954499" duration="17797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44736000" />
+    <option name="totallyTimeSpent" value="76180000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26448894" />
@@ -197,13 +211,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$EXa8392.27166/Bootstrap 4 Site Files/Bootstrap 4 Site Files/index.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$EXa8392.23627/Bootstrap 4 Site Files/12-Website-Bundle.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$EXa5824.39728/index.html" />
-    <entry file="file://$PROJECT_DIR$/Strana1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Strana1.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
@@ -211,20 +218,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/New folder/gradients.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Strana2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="51" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/New folder/gradients.scss" />
     <entry file="file://$USER_HOME$/Desktop/Faks ace/Napreden Veb Dizajn/Lab 3/AWD_Lab_SCSS/zad3/gradients.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -241,27 +235,42 @@
     <entry file="file://$USER_HOME$/Desktop/Faks ace/Napreden Veb Dizajn/Lab 3/AWD_Lab_SCSS/zad2/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/L.Control.Locate.js" />
     <entry file="file://$USER_HOME$/Desktop/Faks ace/Napreden Veb Dizajn/Lab 3/AWD_Lab_SCSS/zad2/zad2.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Strana2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
+        <state relative-caret-position="-9">
+          <caret line="104" column="28" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Strana3.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="773">
-          <caret line="157" column="18" selection-start-line="157" selection-start-column="18" selection-end-line="157" selection-end-column="18" />
+        <state relative-caret-position="756">
+          <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Strana1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="84" column="54" lean-forward="true" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Strana2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="89" column="51" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Strana3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="99" column="35" lean-forward="true" selection-start-line="99" selection-start-column="35" selection-end-line="99" selection-end-column="35" />
+        <state relative-caret-position="750">
+          <caret line="160" column="19" lean-forward="true" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
           </folding>

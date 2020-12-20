@@ -14,6 +14,8 @@
             src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
             integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
             crossorigin="anonymous"></script>
+    <script src="leaflet.geometryutil.js"></script>
+
 
 
     <!-- Bootstrap CSS -->
@@ -21,6 +23,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="Strana3.css">
     <title>Категории</title>
+
 </head>
 <body>
 <div id="celo">
@@ -63,6 +66,9 @@
 
     </div>
     <div id="description">
+
+    </div>
+    <div id="distances">
 
     </div>
 </div>
@@ -111,27 +117,50 @@
                     lan.push(koordinati[i]);
                 }
             }
-            console.log(koordinati);
-            console.log(lat);
-            console.log(lan);
+
             var razdeleni=data.split("\n");
-            console.log(razdeleni);
+
             var prv=razdeleni[1].split(",");
-            console.log(prv);
+
             var prv_lat=prv[1];
             var prv_lon=prv[2];
-            console.log(prv_lat);
-            console.log(prv_lon);
+
             var map=L.map('mapata').setView([41.995918301436745,21.431281780330234],14);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-            for (var i = 0; i < lat.length; i++) {
-                marker = new L.marker([lat[i], lan[i]])
-                    .addTo(map);
-                console.log(lat[i],lan[i]);
-            }
+
+
+
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log(position.coords.latitude,position.coords.longitude);
+                    var myIcon = L.icon({
+                        iconUrl: 'Images/Street_View_logo.png',
+                        iconSize: [70, 95],
+                        popupAnchor: [0, -40],
+                    });
+
+                    L.marker([position.coords.latitude, position.coords.longitude],{icon: myIcon}).bindPopup('Your are here').addTo(map)
+                    L.circle([position.coords.latitude,position.coords.longitude],100).addTo(map);
+                    var arr=[];
+                    for (var i = 0; i < lat.length; i++) {
+                        marker = new L.marker([lat[i], lan[i]])
+                            .addTo(map)
+                        var odalecen=document.getElementById('distances');
+                       arr.push("Ramstor: одалечен " +parseInt(L.GeometryUtil.distance(map, [position.coords.latitude,position.coords.longitude], [lat[i],lan[i]])*7.1) + "Метри <br>")
+                       odalecen.innerHTML=arr.join("");
+
+                        console.log("Ramstor: одалечен " +parseInt(L.GeometryUtil.distance(map, [position.coords.latitude,position.coords.longitude], [lat[i],lan[i]])*7.1) + " Метри" );
+
+                    }
+                    console.log(arr);
+
+
+
+                });
+
+
         });
     });
 
