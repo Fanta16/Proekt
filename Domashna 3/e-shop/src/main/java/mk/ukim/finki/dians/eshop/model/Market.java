@@ -15,10 +15,11 @@ public class Market {
     @OneToMany(mappedBy="market")
     List<Product> products;
     private  String imageUrl;
+    private String nameEN;
 
-    public Market(Long id, String name , List<Product> products, String imageUrl) {
+    public Market(Long id, String name , List<Product> products, String imageUrl,String nameEN) {
         this.id = id;
-
+        this.nameEN=nameEN;
         this.name = name;
         this.products = products;
         this.imageUrl = imageUrl;

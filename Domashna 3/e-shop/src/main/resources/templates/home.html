@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-       <link rel="stylesheet" href="Strana1.css">
+       <link rel="stylesheet" href="home.css">
     <title>Насловна</title>
     <style>
 
@@ -17,41 +17,56 @@
 </head>
 <body>
 <div id="celo">
-<div id="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class=href="#"><img id="logo" src="images/image.jpg"></a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Насловна<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/категории">Категории</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Strana3.html">Мапа</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-globe" aria-hidden="true"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/}">
-                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Пребарај" aria-label="Search" >
-                <input class="btn btn-outline-warning my-2 my-sm-0 dropdown-toggle" type="submit" value="Пребарај"></input>
+    <div id="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class=href="#"><img id="logo" src="Images/image.jpg"></a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a th:if="${language}=='EN'" class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+                        <a th:if="${language}!='EN'" class="nav-link" href="/насловна">Насловна<span class="sr-only">(current)</span></a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a th:if="${language}=='EN'" class="nav-link" href="/categories">Categories</a>
+                        <a th:if="${language}!='EN'" class="nav-link" href="/категории">Категории</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a th:if="${language}=='EN'"class="nav-link" href="/map">Map</a>
+                        <a th:if="${language}!='EN'"class="nav-link" href="/мапа">Мапа</a>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a th:if="${language}!='EN'" th:href="@{/home}"><i class="fa fa-globe" aria-hidden="true"></i></a>
+                        <a th:if="${language}=='EN'" th:href="@{/насловна}"><i class="fa fa-globe" aria-hidden="true"></i></a>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    </li>
+
+                </ul>
+                <form th:if="${language}!='EN'"class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/насловна}">
+
+                    <input  name="search" class="form-control mr-sm-2" type="search" placeholder="Пребарај" aria-label="Search">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Пребарај</button>
+                </form>
+                <form th:if="${language}=='EN'"class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/home}">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 
 
-            </form>
-        </div>
-    </nav>
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -62,8 +77,12 @@
             <div class="carousel-item active">
                 <img class="d-block w-100" src="images/1.jpg" alt="First slide">
                 <div class="carousel-caption">
-                    <h1 class="display2">Најголеми Попусти</h1>
-                    <h2 class="display2">Само на едно место</h2>
+                    <h1  th:if="${language}!='EN'" class="display2">Најголеми Попусти</h1>
+                    <h1  th:if="${language}=='EN'" class="display2">Best Sales</h1>
+
+                    <h2  th:if="${language}!='EN'" class="display2">Само на едно место</h2>
+                    <h2  th:if="${language}=='EN'" class="display2">Everything on one place</h2>
+
                 </div>
             </div>
             <div class="carousel-item">
@@ -82,7 +101,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>
 <div class="container-fluid padding">
     <div class="row padding">
         <div class="col-lg-6 col-sm-6" >
@@ -104,7 +122,8 @@
 </div>
 </div>
 <footer>
-    <p>Контакт:</p>
+    <p th:if="${language}!='EN'">Контакт:</p>
+    <p th:if="${language}=='EN'">Contact:</p>
     <div id="futer" class="container">
         <div class="row">
             <div class="col-xs-6">
@@ -118,10 +137,11 @@
         </div>
     </div>
 
-
 </footer>
 
-
+<script th:inline="javascript" th:each="market : ${markets}">
+    var nameJs=[[${market.getName()}]];
+</script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -11,24 +11,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/searchMK")
-public class SearchController {
-
+@RequestMapping("/search")
+public class SearchControllerEN {
     private final ProductService productService;
 
-    public SearchController(ProductService productService) {
+    public SearchControllerEN(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping
     public String getSearch(Model model, HttpServletRequest request){
         model.addAttribute("products",request.getSession().getAttribute("products"));
-        model.addAttribute("language","MK");
-     return "category"  ;
+        model.addAttribute("language","EN");
+        return "category"  ;
     }
     @PostMapping
     public String postSearch(@RequestParam String search , HttpServletRequest request){
-        request.getSession().setAttribute("products",productService.searchByProducts(search));
-        return "redirect:/searchMK";
+        request.getSession().setAttribute("products",productService.searchByProductsEN(search));
+        return "redirect:/search";
     }
 }

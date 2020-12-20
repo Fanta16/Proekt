@@ -29,4 +29,9 @@ public class MarketLocationServiceImpl implements MarketLocationService {
     public List<MarketLocation> findMarketsLocationByAddress(String address) {
         return marketLocationRepository.findMarketLocationsByAddress(address);
     }
+
+    @Override
+    public List<MarketLocation> findAll() {
+        return marketLocationRepository.findAll();
+    }
 }

@@ -35,4 +35,12 @@ public class ProductServiceImpl implements ProductService {
         List<Product> search=productRepository.findProductsByNameContains(text.toUpperCase());
         return  search;
     }
+
+    @Override
+    public List<Product> searchByProductsEN(String text) {
+        List<Product> search=productRepository.findProductsByNameENContains(text.toUpperCase());
+        return search;
+
+
+    }
 }

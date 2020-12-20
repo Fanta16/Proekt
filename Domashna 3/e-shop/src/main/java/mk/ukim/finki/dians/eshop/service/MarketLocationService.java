@@ -10,4 +10,6 @@ public interface MarketLocationService {
     List<MarketLocation> findMarketLocationsByMarket(Market market);
    List<MarketLocation> findMarketLocationsByLatitudeAndLongitude(float latitude, float longitude);
     List<MarketLocation> findMarketsLocationByAddress(String address);
+
+    List<MarketLocation> findAll();
 }

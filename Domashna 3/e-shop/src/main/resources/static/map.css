@@ -143,9 +143,9 @@ footer p{
 #mapata{
     position: absolute;
     margin-top: 10px;
-    left: 10%;
-    height: 70%;
-    width: 80%;
+    left: 15%;
+    height: 40%;
+    width: 70%;
     border: 2px solid black;
 }
 .fa-sign-in{
@@ -154,4 +154,12 @@ footer p{
     margin-top: 20px;
     margin-left: 45px;
 }
-
+#description{
+    display: none;
+}
+#distances{
+    margin-top: 600px;
+    border: 1px solid black;
+    height: max-content;
+    background-color: white;
+}

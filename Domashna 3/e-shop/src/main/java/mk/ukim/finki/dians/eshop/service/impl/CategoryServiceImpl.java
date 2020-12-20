@@ -30,5 +30,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     }
 
+    @Override
+    public List<Product> findProductsByCategoryEN(String name) {
+        return productRepository.findProductByCategory(categoryRepository.findCategoryByNameEN(name));
+    }
+
 
 }

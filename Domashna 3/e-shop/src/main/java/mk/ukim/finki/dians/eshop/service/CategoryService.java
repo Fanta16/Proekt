@@ -8,6 +8,7 @@ import java.util.List;
 public interface CategoryService {
 List<Category> listAll();
 List<Product> findProductsByCategory(String name);
+List<Product> findProductsByCategoryEN(String name);
 
 
 }

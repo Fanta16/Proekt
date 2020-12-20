@@ -13,48 +13,48 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
 @Controller
-@RequestMapping("/категории")
-public class CategoryController {
+@RequestMapping("/categories")
+public class CategoryControllerEN {
 
     private final CategoryService categoryService;
     private final ProductService productService;
 
-    public CategoryController(CategoryService categoryService, ProductService productService) {
+    public CategoryControllerEN(CategoryService categoryService, ProductService productService) {
         this.categoryService = categoryService;
         this.productService = productService;
     }
 
     @GetMapping
     public String getPage(Model model,HttpServletRequest request){
-        model.addAttribute("language","MK");
+        model.addAttribute("language","EN");
+
         model.addAttribute("categories",categoryService.listAll());
         return "categories";
 
 
 
-}
-@PostMapping
-public String getResults(Model model, HttpServletRequest request){
+    }
+    @PostMapping
+    public String getResults(Model model, HttpServletRequest request){
 
-        request.getSession().setAttribute("products",productService.searchByProducts(request.getParameter("search")));
-return "redirect:/пребарај";
+        request.getSession().setAttribute("products",productService.searchByProductsEN(request.getParameter("search")));
+        return "redirect:/search";
 
-}
+    }
 
-@GetMapping("/{category}")
+    @GetMapping("/{category}")
     public String getCategoryPage(@PathVariable String category,Model model){
         model.addAttribute("category",category);
-        model.addAttribute("language","MK");
 
-        model.addAttribute("products",categoryService.findProductsByCategory(category));
-
+        model.addAttribute("products",categoryService.findProductsByCategoryEN(category));
+model.addAttribute("language","EN");
 
         return "category";
-}
+    }
     @PostMapping("/{category}")
     public String getResultsCategory(Model model,HttpServletRequest request,@PathVariable String category){
         request.getSession().setAttribute("products",productService.searchByProductsEN(request.getParameter("search")));
-        return "redirect:/searchMK";
+        return "redirect:/search";
 
     }
 
