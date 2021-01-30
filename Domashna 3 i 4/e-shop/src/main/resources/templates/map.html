@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="leaflet.css" />
+    <!--[if lte IE 8]>
+    <![endif]-->
+<!--    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>-->
+    <script src="leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+
+    <script src="leaflet.geometryutil.js"></script>
+
+    <!-- Bootstrap CSS -->
+
+    <title th:if="${language}!='EN'">Мапа</title>
+    <title th:if="${language}=='EN'">Map</title>
+</head>
+<body>
+
+    <div id="mapata" >
+
+
+    </div>
+    <div id="description">
+
+    </div>
+
+    <div id="distances">
+
+    </div>
+    <div id="nearest">
+
+    </div>
+
+</div>
+
+<script>
+
+    var greenIcon=L.icon({
+        iconUrl:'https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png',
+        iconSize:     [20, 50], // size of the icon
+        shadowSize:   [50, 64], // size of the shadow
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+            var map=L.map('mapata').setView([41.995918301436745,21.431281780330234],14);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+    if("geolocation" in navigator){
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position.coords.latitude,position.coords.longitude);
+            var myIcon = L.icon({
+                iconUrl: 'https://cdn01.vulcanpost.com/wp-uploads/2015/08/Street_View_logo.png',
+                iconSize: [70, 95],
+                popupAnchor: [0, -40],
+            });
+
+
+
+            // for (var i = 0; i < lat.length; i++) {
+            //     marker = new L.marker([lat[i], lan[i]])
+            //         .addTo(map)
+
+
+
+
+        });
+    }else{
+        console.log("you dont have geolocation");
+    }
+
+
+arr=[]
+    distances=[]
+markets=[]
+</script>
+<script th:inline="javascript" th:each="marketloc : ${marketlocs}">
+    console.log([[${marketloc.getLatitude()}]])
+    marker = new L.marker([ [[${marketloc.getLatitude()}]],[[${marketloc.getLongitude()}]] ],{icon: greenIcon})
+        .addTo(map);
+    var a=[[${marketloc.getName()}]]+" - "+[[${marketloc.getAddress()}]];
+    marker.bindPopup(a).openPopup();
+    if("geolocation" in navigator){
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position.coords.latitude, position.coords.longitude);
+            var myIcon = L.icon({
+                iconUrl: 'https://cdn01.vulcanpost.com/wp-uploads/2015/08/Street_View_logo.png',
+                iconSize: [70, 95],
+                popupAnchor: [0, -40],
+            });
+
+
+            var oddalecen = document.getElementById("distances");
+var latitude=[[${marketloc.getLatitude()}]];
+var longitude=[[${marketloc.getLongitude()}]]
+            if([[${language}]]!='EN') {
+                arr.push("<p>" + [[${marketloc.getName()}]] + " e оддалечен од вас " + parseInt(L.GeometryUtil.distance(map, [position.coords.latitude, position.coords.longitude], [latitude, longitude]) * 7.1) + " метри </p>");
+            markets.push([[${marketloc.getName()}]]);
+
+
+            }
+            else{
+                arr.push("<p>" + [[${marketloc.getNameEN()}]] + " is away from you " + parseInt(L.GeometryUtil.distance(map, [position.coords.latitude, position.coords.longitude], [latitude, longitude]) * 7.1) + " meters </p>");
+                markets.push([[${marketloc.getNameEN()}]]);
+
+
+
+
+            }
+            distances.push(parseInt(L.GeometryUtil.distance(map, [position.coords.latitude, position.coords.longitude], [latitude, longitude]) * 7.1));
+
+            oddalecen.innerHTML=arr.join("");
+        });
+    }
+
+    console.log(a);
+    console.log(a);
+
+
+
+
+</script>
+<script>
+    if("geolocation" in navigator){
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position.coords.latitude,position.coords.longitude);
+            var myIcon = L.icon({
+                iconUrl: 'https://cdn01.vulcanpost.com/wp-uploads/2015/08/Street_View_logo.png',
+                iconSize: [70, 95],
+                shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-10, -76]
+
+            });
+
+
+         marker= new  L.marker([position.coords.latitude, position.coords.longitude],{icon: myIcon}).bindPopup('Your are here').addTo(map)
+        circle= new   L.circle([position.coords.latitude,position.coords.longitude],100).addTo(map);
+         b="You are here"
+         marker.bindPopup().openPopup(b);
+            // for (var i = 0; i < lat.length; i++) {
+            //     marker = new L.marker([lat[i], lan[i]])
+            //         .addTo(map)
+nearestmarkets=[];
+            j=0;
+            min=markets[0];
+            for(var i =0;i < markets.length;i++){
+                if(distances[i]<min){
+                    nearestmarkets.push(markets[i]);
+                    min=markets[i];
+                    if(nearestmarkets.length===5)
+                        break;
+
+
+                }
+
+            }
+            if([[${language}]]==='EN')
+            document.getElementById("nearest").innerText="Your nearest markets are : "+nearestmarkets.join(",");
+            else
+                document.getElementById("nearest").innerText="Вашите најблиски маркет се: "+nearestmarkets.join(",");
+
+
+
+        });
+    }else{
+        console.log("you dont have geolocation");
+    }
+
+</script>
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

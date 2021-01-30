@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="categories.css">
+    <title th:if="${language}!='EN'">Категории</title>
+    <title th:if="${language}=='EN'">Categories</title>
+
+</head>
+<body>
+
+
+    <div th:if="${language}=='MK'" class="container">
+        <div class="row">
+            <div class="col-lg-6  " th:each="category,index : ${categories}" th:if="${index.even}">
+                <a th:href="@{'/category/{category}' (category=${category.getName()})}">
+
+                <img th:src="${category.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category.getName()}">Овошје и Зеленчук</h1>
+                </a>
+            </div>
+
+            <div class="col-lg-6  other"  th:each="category1, index1 : ${categories}" th:if="${index1.odd}">
+                <a th:href="@{'/category/{category}' (category=${category1.getName()},language='MK')}">
+
+                <img   th:src="${category1.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category1.getName()}"></h1>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div th:if="${language}!='MK'" class="container ">
+        <div class="row">
+        <div class="col-lg-6  " th:each="category,index : ${categories}" th:if="${index.even}">
+            <a th:href="@{'/category/{category}' (category=${category.getNameEN()},language='EN')}">
+
+                <img  th:src="${category.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category.getNameEN()}"></h1>
+            </a>
+        </div>
+        <div class="col-lg-6  other"  th:each="category1, index1 : ${categories}" th:if="${index1.odd}">
+            <a th:href="@{'/category/{category}' (category=${category1.getNameEN()})}">
+
+                <img  th:src="${category1.getImageUrl()}">
+                <h1 class="sliki_text" th:text="${category1.getNameEN()}"></h1>
+            </a>
+        </div>
+    </div>
+    </div>
+
+
+
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
